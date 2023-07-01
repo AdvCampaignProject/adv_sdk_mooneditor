@@ -40,7 +40,7 @@ jobs:
         uses: ammaraskar/msvc-problem-matcher@master
 
       - name: Build ${{matrix.configuration}} binaries
-        run: msbuild /m /v:minimal /p:Configuration=${{matrix.configuration}} /p:Platform=Win32 build/iw3xo-radiant.sln
+        run: msbuild /m /v:minimal /p:Configuration=${{matrix.configuration}} /p:Platform=Win32 build/BIA_MOONEDITOR.sln
 
       - name: Upload ${{matrix.configuration}} binaries
         uses: actions/upload-artifact@v2
