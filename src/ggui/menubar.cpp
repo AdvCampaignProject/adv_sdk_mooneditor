@@ -190,23 +190,23 @@ namespace ggui
 				if (ImGui::MenuItem("Project Settings")) {
 					mainframe_cdeclcall(void, 0x428DE0); //cmainframe::OnFileProjectsettings
 				}
+				
+				/*if (ImGui::BeginMenu("Project Settings"))
+				{
+					if (ImGui::MenuItem("New Project")) {
+						mainframe_cdeclcall(void, 0x426E80); //cmainframe::OnFileNewproject
+					}
 
-				//if (ImGui::BeginMenu("Project Settings"))
-				//{
-				//	if (ImGui::MenuItem("New Project")) {
-				//		mainframe_cdeclcall(void, 0x426E80); //cmainframe::OnFileNewproject
-				//	}
+					if (ImGui::MenuItem("Set Startup Project")) {
+						mainframe_cdeclcall(void, 0x427010); //cmainframe::OnSetStartupProject
+					}
 
-				//	if (ImGui::MenuItem("Set Startup Project")) {
-				//		mainframe_cdeclcall(void, 0x427010); //cmainframe::OnSetStartupProject
-				//	}
+					if (ImGui::MenuItem("Project Settings")) {
+						mainframe_cdeclcall(void, 0x428DE0); //cmainframe::OnFileProjectsettings
+					}
 
-				//	if (ImGui::MenuItem("Project Settings")) {
-				//		mainframe_cdeclcall(void, 0x428DE0); //cmainframe::OnFileProjectsettings
-				//	}
-
-				//	ImGui::EndMenu(); // Project Settings
-				//}
+					ImGui::EndMenu(); // Project Settings
+				}*/
 
 				SEPERATORV(0.0f);
 
@@ -352,10 +352,6 @@ namespace ggui
 
 					if (ImGui::MenuItem("Toolbox", ggui::hotkey_dialog::get_hotkey_for_command("toggle_toolbox").c_str())) {
 						GET_GUI(ggui::toolbox_dialog)->toggle();
-					}
-
-					if (ImGui::MenuItem("ImGui Demo")) {
-						ggui::m_demo_menu_state = !ggui::m_demo_menu_state;
 					}
 
 					SEPERATORV(0.0f);
@@ -926,7 +922,10 @@ namespace ggui
 
 				ImGui::EndMenu(); // Renderer
 			}
-
+			if (ImGui::BeginMenu("Build"))
+			{
+				ImGui::EndMenu();
+			}
 			if (ImGui::BeginMenu("Effects"))
 			{
 				if (ImGui::MenuItem("Effect Settings .."))
