@@ -92,7 +92,7 @@ namespace components
 			handlers.spectateGame = nullptr;
 			handlers.joinRequest = nullptr;
 
-			Discord_Initialize("944578423001612328", &handlers, 1, nullptr);
+			Discord_Initialize("1124798759679819937", &handlers, 1, nullptr);
 			discord_presence_initialized = true;
 		}
 	}
