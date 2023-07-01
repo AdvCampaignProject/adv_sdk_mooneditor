@@ -212,7 +212,7 @@ end
 
 dependencies.load()
 
-workspace "iw3xo-radiant"
+workspace "BIA_MOONEDITOR"
 
 	startproject "iw3r"
 	location "./build"
