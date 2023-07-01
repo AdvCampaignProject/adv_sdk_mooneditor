@@ -1,7 +1,7 @@
 
 
 
-<h2 align="center">iw3xo-radiant // a radiant modification for Call of Duty 4</h1>
+<h2 align="center">BinArms MDK MoonEditor based</h1>
 
 <div align="center" markdown="1">
 
