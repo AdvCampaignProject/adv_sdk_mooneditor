@@ -79,7 +79,12 @@ namespace components
 
 
 	command::command()
-	{ }
+	{
+		command::register_command("build"s, [](std::vector<std::string> args)
+		{
+			system("build.bat");
+		});
+	}
 
 	command::~command()
 	{ }
