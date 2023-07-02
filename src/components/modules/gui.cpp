@@ -362,7 +362,6 @@ namespace components
 			IMGUI_BEGIN_CZWND;
 
 			// global style vars for current context
-			ImGuiStyle& style = ImGui::GetStyle();
 
 			// begin context frame
 			gui::begin_frame();
