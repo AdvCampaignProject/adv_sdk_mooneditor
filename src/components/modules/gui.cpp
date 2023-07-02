@@ -67,7 +67,9 @@ namespace components
 		ImGui_ImplDX9_Init(device);
 
 		// style
-		ImGui::StyleColorsDevgui();
+		// ImGui::StyleColorsDevgui();
+		ImGui::StyleColorsDark();
+    	//ImGui::StyleColorsLight();
 
 		// fully initialized
 		ggui::m_ggui_initialized = true;
