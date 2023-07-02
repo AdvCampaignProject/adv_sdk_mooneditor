@@ -102,12 +102,9 @@ namespace components
 		window_flags |= ImGuiWindowFlags_NoBringToFrontOnFocus | ImGuiWindowFlags_NoNavFocus;
 		window_flags |= ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse;
 		
-		ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 0.0f); _stylevars++;
-		ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.0f); _stylevars++;
 
 		// use padding to make room for the top / left floating toolbar
 		const auto window_padding = ImVec2(0.0f, 0.0f);
-		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, window_padding); _stylevars++;
 		ImGui::Begin("dockspace", nullptr, window_flags);
 
 		ImGui::PopStyleVar(_stylevars); _stylevars = 0;
@@ -367,14 +364,6 @@ namespace components
 			// global style vars for current context
 			ImGuiStyle& style = ImGui::GetStyle();
 
-			style.Colors[ImGuiCol_WindowBg] = ImGui::ToImVec4(dvars::gui_window_bg_color->current.vector);
-			style.Colors[ImGuiCol_ChildBg] = ImGui::ToImVec4(dvars::gui_window_child_bg_color->current.vector);
-			style.Colors[ImGuiCol_Border] = ImGui::ToImVec4(dvars::gui_border_color->current.vector);
-			style.Colors[ImGuiCol_DockingPreview] = ImGui::ToImVec4(dvars::gui_dockingpreview_color->current.vector);
-
-			style.FrameBorderSize = 0.0f;
-			style.WindowMenuButtonPosition = 0;
-
 			// begin context frame
 			gui::begin_frame();
 
@@ -480,10 +469,7 @@ namespace components
 				}
 			}
 			ImGui::End();*/
-			
-			ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(10.0f, 10.0f));
 			ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 5.0f);
-			ImGui::PushStyleColor(ImGuiCol_WindowBg, ImVec4(0.1f, 0.1f, 0.1f, 0.1f));
 
 			ImGui::RenderNotifications();
 
@@ -670,27 +656,6 @@ namespace components
 	// register_addon_dvars()
 	void gui::register_dvars()
 	{
-		dvars::gui_menubar_bg_color = dvars::register_vec4(
-			/* name		*/ "gui_menubar_bg_color",
-			/* x		*/ 0.11f,
-			/* y		*/ 0.11f,
-			/* z		*/ 0.11f,
-			/* w		*/ 1.0f,
-			/* minVal	*/ 0.0f,
-			/* maxVal	*/ 1.0f,
-			/* flags	*/ game::dvar_flags::saved,
-			/* desc		*/ "gui menubar background color");
-
-		dvars::gui_window_bg_color = dvars::register_vec4(
-			/* name		*/ "gui_window_bg_color",
-			/* x		*/ 0.173f,
-			/* y		*/ 0.173f,
-			/* z		*/ 0.173f,
-			/* w		*/ 1.0f,
-			/* minVal	*/ 0.0f,
-			/* maxVal	*/ 1.0f,
-			/* flags	*/ game::dvar_flags::saved,
-			/* desc		*/ "backgroundcolor of gui windows (undocked)");
 		
 		dvars::gui_window_child_bg_color = dvars::register_vec4(
 			/* name		*/ "gui_window_child_bg_color",
@@ -727,29 +692,6 @@ namespace components
 		
 		// *
 		// *
-		
-		dvars::gui_toolbar_bg_color = dvars::register_vec4(
-			/* name		*/ "gui_toolbar_bg_color",
-			/* x		*/ 0.11f,
-			/* y		*/ 0.11f,
-			/* z		*/ 0.11f,
-			/* w		*/ 1.0f,
-			/* minVal	*/ 0.0f,
-			/* maxVal	*/ 1.0f,
-			/* flags	*/ game::dvar_flags::saved,
-			/* desc		*/ "gui toolbar background color");
-
-		
-		dvars::gui_toolbar_button_color = dvars::register_vec4(
-			/* name		*/ "gui_toolbar_button_color",
-			/* x		*/ 0.11f,
-			/* y		*/ 0.11f,
-			/* z		*/ 0.11f,
-			/* w		*/ 1.0f,
-			/* minVal	*/ 0.0f,
-			/* maxVal	*/ 1.0f,
-			/* flags	*/ game::dvar_flags::saved,
-			/* desc		*/ "backgroundcolor of toolbar button");
 		
 		dvars::gui_toolbar_button_hovered_color = dvars::register_vec4(
 			/* name		*/ "gui_toolbar_button_hovered_color",
