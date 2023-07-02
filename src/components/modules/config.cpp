@@ -15,9 +15,9 @@ namespace components
 		int loaded_dvar_count = 0;
 
 		std::ifstream cfg;
-		if (utils::fs::open_file_homepath("IW3xRadiant", "dvars.cfg", false, cfg))
+		if (utils::fs::open_file_homepath("config", "dvars.cfg", false, cfg))
 		{
-			game::printf_to_console("[CFG] Loading dvars from config 'bin/IW3xRadiant/dvars.cfg'");
+			game::printf_to_console("[CFG] Loading dvars from config 'bin/config/dvars.cfg'");
 
 			std::string input;
 			std::vector<std::string> args;
