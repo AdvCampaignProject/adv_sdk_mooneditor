@@ -36,6 +36,12 @@ namespace ggui
 			if (game::glob::gh_update_avail)
 			{
 				ImGui::PushFontFromIndex(BOLD_18PX);
+				const char* prog_name = "BinArms SDK Map Editor";
+				ImGui::SetCursorForCenteredText(prog_name);
+				ImGui::TextWrapped(prog_name);
+				ImGui::PopFont();
+				
+				ImGui::PushFontFromIndex(BOLD_18PX);
 				const char* tag_date = utils::va("[TAG %s] :: [%s]", game::glob::gh_update_tag.c_str(), game::glob::gh_update_date.c_str());
 				ImGui::SetCursorForCenteredText(tag_date);
 				ImGui::TextWrapped(tag_date);
@@ -47,14 +53,8 @@ namespace ggui
 
 				SPACING(0.0f, 12.0f);
 
-				const char* gh_changelog = utils::va("https://github.com/xoxor4d/iw3xo-radiant/wiki/Changelog#%s", game::glob::gh_update_tag.c_str());
-				ImGui::SetCursorForCenteredText("Changelog:"); ImGui::TextUnformatted("Changelog:");
-				ImGui::SetCursorForCenteredText(gh_changelog); ImGui::TextURL(gh_changelog, gh_changelog);
-
-				SPACING(0.0f, 2.0f);
-
-				const char* gh_releases = "https://github.com/xoxor4d/iw3xo-radiant/releases";
-				ImGui::SetCursorForCenteredText("GitHub Releases:"); ImGui::TextUnformatted("GitHub Releases:");
+				const char* gh_releases = "https://github.com/BinAmsProject/bia_sdk_mooneditor/releases";
+				ImGui::SetCursorForCenteredText("Releases:"); ImGui::TextUnformatted("Releases:");
 				ImGui::SetCursorForCenteredText(gh_releases); ImGui::TextURL(gh_releases, gh_releases);
 
 				SPACING(0.0f, 2.0f);
@@ -62,8 +62,6 @@ namespace ggui
 				ImGui::SetCursorForCenteredText("Direct download:");  ImGui::TextUnformatted("Direct download:");
 				ImGui::SetCursorForCenteredText(game::glob::gh_update_zip_name.c_str()); ImGui::TextURL(game::glob::gh_update_zip_name.c_str(), game::glob::gh_update_link.c_str());
 
-				SPACING(0.0f, 16.0f);
-				ImGui::Separator();
 				SPACING(0.0f, 8.0f);
 			}
 
@@ -81,10 +79,8 @@ namespace ggui
 
 			SPACING(0.0f, 8.0f);
 
-			CENTER_URL("Github Repository", "https://github.com/xoxor4d/iw3xo-radiant");
-			CENTER_URL("Github Project Page", "https://xoxor4d.github.io/projects/iw3xo-radiant/");
-			CENTER_URL("Latest build", "https://github.com/xoxor4d/iw3xo-radiant/releases");
-			CENTER_URL("Discord", "https://discord.gg/t5jRGbj");
+			CENTER_URL("Latest build", "https://github.com/BinAmsProject/bia_sdk_mooneditor/releases");
+			CENTER_URL("Discord", "https://discord.gg/CxQVXJPT5E");
 
 			SPACING(0.0f, 8.0f);
 			ImGui::Separator();
@@ -98,6 +94,7 @@ namespace ggui
 
 			SPACING(0.0f, 8.0f);
 
+			CENTER_URL("xoxor4d", "https://xoxor4d.github.io/");
 			CENTER_URL("The X-Labs Team (especially Snake)", "https://github.com/XLabsProject/");
 			CENTER_URL("The Plutonium Project Team (especially Rektinator)", "https://plutonium.pw/");
 			CENTER_URL("Nukem (LinkerMod / Detours)", "https://github.com/Nukem9");
